@@ -10,8 +10,8 @@
           <el-menu-item index="/interblockchainshow">跨链</el-menu-item>
         </el-menu>
       </el-aside>
-
       <el-container>
+        <el-header>Header</el-header>
         <el-main>
           <router-view />
         </el-main>
