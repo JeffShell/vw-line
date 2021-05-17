@@ -1,6 +1,6 @@
 <template>
 
-  <el-row>
+  <el-row class="aaa">
     <el-form ref="form" :model="form" label-width="100px">
       <el-col :span="10">
         <el-form-item label="按编号查询">
@@ -68,5 +68,7 @@ export default {
 </script>
 
 <style scoped>
-
+.aaa {
+  border: 1px solid red;
+}
 </style>

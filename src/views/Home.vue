@@ -23,7 +23,7 @@ export default {
 
 <style leng="scss">
 .el-header {
-  border: 1px solid red;
+  border-bottom: 1px solid #eee;
 }
 
 .el-aside {
@@ -31,6 +31,5 @@ export default {
 }
 
 .el-main {
-  border: 1px solid skyblue;
 }
 </style>
