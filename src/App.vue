@@ -13,6 +13,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+@import '~@/assets/style/reset.scss';
 </style>
