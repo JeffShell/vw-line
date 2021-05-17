@@ -24,23 +24,24 @@ export default {
   name: "BookList",
   data() {
     return {
-      url: 'https://api.mocksys.com/api/v1/mock/20042/get/past',
+      url: 'https://api.mocksys.com/api/v1/mock/20043/get/kxlm',
       table_row: [
-        {prop:'number',label:'序号'},
-        {prop:'bookName',label:'书名'},
-        {prop:'author',label:'作者'},
-        {prop:'ISB',label:'ISBN'},
-        {prop:'bookPage',label:'页数'},
-        {prop:'price',label:'定价'},
-        {prop:'publishDate',label:'出版时间'},
-        {prop:'inventor',label:'库存数量'},
-        {prop:'transla',label:'翻译'},
-        {prop:'classify',label:'分类'}
+        {prop:'licence',label:'名称'},
+        {prop:'number',label:'编号'},
+        {prop:'unit',label:'建设单位'},
+        {prop:'department',label:'发证机关'},
+        {prop:'date',label:'发证日期'},
+        {prop:'unitName',label:'工程名称'},
+        {prop:'address',label:'建设地址'},
+        {prop:'price',label:'合同价格'},
+        {prop:'buildUnit',label:'建设单位'},
+        {prop:'hash',label:'广州局交易哈希'},
+        {prop:'status',label:'状态'}
       ],
       lineData: [],
       currentPage:1,
       totalCount:10,
-      PageSize:10,
+      PageSize:7,
     }
   },
   computed:{
