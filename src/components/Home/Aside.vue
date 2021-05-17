@@ -1,10 +1,20 @@
 <template>
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-aside style="width: 200px">
     <el-menu
         default-active="1"
         unique-opened
-        router>
-      <el-menu-item index="/interblockchainshow">跨链</el-menu-item>
+        router
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#5486ca">
+      <el-menu-item index="/interblockchainshow">
+        <i class="el-icon-s-grid"></i>
+        跨链
+      </el-menu-item>
+      <el-menu-item index="/nothing">
+        <i class="el-icon-data-line"></i>
+        什么都没
+      </el-menu-item>
     </el-menu>
   </el-aside>
 </template>
@@ -17,12 +27,14 @@ export default {
 
 <style lang="scss" scoped>
 .el-aside {
-  color: #333;
-  border-right: 1px solid #d3dce6;
-  line-height: 200px;
   height: 100vh;
-  > span {
-    margin-right: auto;
+  border: 0;
+  background-color:#545c64;
+  > .el-menu {
+    border: 0;
+    > .el-menu-item {
+      font-size: 18px;
+    }
   }
 }
 </style>

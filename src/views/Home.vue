@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container>
       <Aside/>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>标题</el-header>
         <el-main>
           <router-view />
         </el-main>
@@ -22,24 +22,15 @@ export default {
 </script>
 
 <style leng="scss">
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
+.el-header {
+  border: 1px solid red;
 }
 
 .el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
+  /*border: 1px solid red;*/
 }
 
 .el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
+  border: 1px solid skyblue;
 }
 </style>
