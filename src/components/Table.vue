@@ -6,7 +6,7 @@
           :prop="item.prop" :label="item.label">
         <template v-if="item.prop === 'status'"  slot-scope="scope">
           <el-tag :type="scope.row.status ? 'success' : 'info'">
-            缓存
+            {{scope.row.status ? '缓存' : '未缓存'}}
           </el-tag>
         </template>
         <div class="cc" v-if="item.prop === 'cc'">
