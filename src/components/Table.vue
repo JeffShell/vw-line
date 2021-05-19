@@ -1,18 +1,19 @@
 <template>
   <div>
     <el-table :data="displayData" stripe>
-        <el-table-column
-            v-for="(item, index) in table_row" :key="index"
-            :prop="item.prop" :label="item.label"
-        >
-          <template v-if="item.prop === 'status'">
-            <el-tag :type="lineData[index].status? 'success' : 'info'">缓存成功</el-tag>
-          </template>
-          <div class="cc" v-else-if="item.prop === 'cc'">
-            <el-button size="mini" type="success">上链</el-button>
-            <el-button size="mini" type="danger">删除</el-button>
-          </div>
-        </el-table-column>
+      <el-table-column
+          v-for="(item, index) in table_row" :key="index"
+          :prop="item.prop" :label="item.label">
+        <template v-if="item.prop === 'status'"  slot-scope="scope">
+          <el-tag :type="scope.row.status ? 'success' : 'info'">
+            缓存
+          </el-tag>
+        </template>
+        <div class="cc" v-if="item.prop === 'cc'">
+          <el-button size="mini" type="success">上链</el-button>
+          <el-button size="mini" type="danger">删除</el-button>
+        </div>
+      </el-table-column>
     </el-table>
     <div class="tabListPage">
       <el-pagination
@@ -54,7 +55,7 @@ export default {
       lineData: [],
       currentPage: 1,
       totalCount: 10,
-      pageSizes:[1,2,3,4,5],
+      pageSizes: [1, 2, 3, 4, 5],
       PageSize: 5,
     }
   },
@@ -63,22 +64,27 @@ export default {
       return this.lineData.slice(
           (this.currentPage - 1) * this.PageSize, this.currentPage * this.PageSize
       )
-    },
+    }
   },
   methods: {
     getData() {
       axios.get(this.url)
-        .then((response) => {
-          this.lineData = response.data.data
-          this.totalCount = response.data.data.length
-          console.log(this.lineData[0].status)
-        }).catch(function (error) {
-          console.log(error);
-        })
+          .then((response) => {
+            this.lineData = response.data.data
+            this.totalCount = response.data.data.length
+          }).catch(function (error) {
+        console.log(error);
+      })
     },
+    filterTag(value, row) {
+      console.log(row)
+      return row.tag === value;
+    },
+
+
     handleSizeChange(val) {
-      this.PageSize=val
-      this.currentPage=1
+      this.PageSize = val
+      this.currentPage = 1
     },
     handleCurrentChange(val) {
       this.currentPage = val
@@ -95,6 +101,7 @@ export default {
   margin: 20px;
   text-align: center;
 }
+
 .cc {
   display: flex;
 }
