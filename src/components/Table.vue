@@ -46,31 +46,11 @@ export default {
   data() {
     return {
       url: 'https://api.mocksys.com/api/v1/mock/20043/get/kxlm',
-      table_row: [
-        {prop: 'licence', label: '名称'},
-        {prop: 'number', label: '编号'},
-        {prop: 'unit', label: '建设单位'},
-        {prop: 'department', label: '发证机关'},
-        {prop: 'date', label: '发证日期'},
-        {prop: 'unitName', label: '工程名称'},
-        {prop: 'address', label: '建设地址'},
-        {prop: 'price', label: '合同价格'},
-        {prop: 'buildUnit', label: '建设单位'},
-        {prop: 'hash', label: '广州局交易哈希'},
-        {prop: 'status', label: '状态'},
-        {prop: 'cc', label: '操作'}
-      ],
       lineData: [],
       currentPage: 1,
       totalCount: 10,
       pageSizes: [1, 2, 3, 4, 5],
       PageSize: 5,
-    }
-  },
-  filters: {
-    capitalize: function (value) {
-      if (!value) return
-      console.log(value)
     }
   },
   computed: {
