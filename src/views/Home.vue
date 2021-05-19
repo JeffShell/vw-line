@@ -3,7 +3,9 @@
     <el-container>
       <Aside/>
       <el-container>
-        <el-header>标题</el-header>
+        <el-header>
+          <Breadcrumb/>
+        </el-header>
         <el-main>
           <router-view />
         </el-main>
@@ -14,9 +16,11 @@
 </template>
 <script>
 import Aside from '@/components/Home/Aside.vue'
+import Breadcrumb from '@/components/Home/Breadcrumb.vue'
 export default {
   components:{
     Aside,
+    Breadcrumb
   }
 }
 </script>
@@ -24,12 +28,5 @@ export default {
 <style leng="scss">
 .el-header {
   border-bottom: 1px solid #eee;
-}
-
-.el-aside {
-  /*border: 1px solid red;*/
-}
-
-.el-main {
 }
 </style>

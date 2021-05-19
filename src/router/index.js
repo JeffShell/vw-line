@@ -9,25 +9,29 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect: '/interblockchainshow',
-
+        component: Home,
+        redirect: "/home",
+        name: 'home',
     },
     {
-        path: '/home',
+        path: "/home",
         component: Home,
-        children: [
-
-            {
-                path: '/interblockchainshow',
-                component: InterBlockchainShow
-            },
-            {
-                path: '/nothing',
-                component: Nothing
-            },
-        ]
-
+        name: 'home',
+        children: [{
+            path: "",
+            component: InterBlockchainShow,
+            name: '跨链',
+        },{
+            path: '/interblockchainshow',
+            component: InterBlockchainShow,
+            name: '跨链',
+        },{
+            path: '/nothing',
+            component: Nothing,
+            name: '什么都没',
+        }]
     }
+
 ]
 
 const router = new VueRouter({

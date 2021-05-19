@@ -1,11 +1,18 @@
 <template>
   <div>
     <el-table :data="displayData" stripe>
-      <el-table-column
-          v-for="(item, index) in table_row" :key="index"
-          :prop="item.prop" :label="item.label"
-      >
-      </el-table-column>
+        <el-table-column
+            v-for="(item, index) in table_row" :key="index"
+            :prop="item.prop" :label="item.label"
+        >
+          <template v-if="item.prop === 'status'">
+            <el-tag :type="lineData[index].status? 'success' : 'info'">缓存成功</el-tag>
+          </template>
+          <div class="cc" v-else-if="item.prop === 'cc'">
+            <el-button size="mini" type="success">上链</el-button>
+            <el-button size="mini" type="danger">删除</el-button>
+          </div>
+        </el-table-column>
     </el-table>
     <div class="tabListPage">
       <el-pagination
@@ -41,13 +48,14 @@ export default {
         {prop: 'price', label: '合同价格'},
         {prop: 'buildUnit', label: '建设单位'},
         {prop: 'hash', label: '广州局交易哈希'},
-        {prop: 'status', label: '状态'}
+        {prop: 'status', label: '状态'},
+        {prop: 'cc', label: '操作'}
       ],
       lineData: [],
       currentPage: 1,
       totalCount: 10,
-      pageSizes:[1,2,3,4],
-      PageSize: 4,
+      pageSizes:[1,2,3,4,5],
+      PageSize: 5,
     }
   },
   computed: {
@@ -55,7 +63,7 @@ export default {
       return this.lineData.slice(
           (this.currentPage - 1) * this.PageSize, this.currentPage * this.PageSize
       )
-    }
+    },
   },
   methods: {
     getData() {
@@ -63,6 +71,7 @@ export default {
         .then((response) => {
           this.lineData = response.data.data
           this.totalCount = response.data.data.length
+          console.log(this.lineData[0].status)
         }).catch(function (error) {
           console.log(error);
         })
@@ -75,7 +84,7 @@ export default {
       this.currentPage = val
     },
   },
-  created: function () {
+  created() {
     this.getData()
   }
 }
@@ -86,5 +95,7 @@ export default {
   margin: 20px;
   text-align: center;
 }
-
+.cc {
+  display: flex;
+}
 </style>
