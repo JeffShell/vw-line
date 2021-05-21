@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-table :data="displayData" stripe>
+    <el-table :data="displayData"
+              stripe
+              border>
       <el-table-column prop="licence" label="名称"></el-table-column>
       <el-table-column prop="number" label="编号"></el-table-column>
       <el-table-column prop="unit" label="建设单位"></el-table-column>

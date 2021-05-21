@@ -38,15 +38,12 @@ export default {
 <style lang="scss" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
-  min-height: 400px;
 }
 .el-menu {
   height: 100vh;
   border: 0;
     > .el-menu-item {
       font-size: 18px;
-      //width: 200px;
     }
-
 }
 </style>
