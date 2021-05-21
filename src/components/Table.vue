@@ -1,9 +1,12 @@
 <template>
   <div>
-    <el-table :data="displayData"
-              stripe
-              border>
-      <el-table-column prop="licence" label="名称"></el-table-column>
+    <el-table
+        style="width:1700px"
+        :data="displayData"
+        stripe
+        fit
+        border>
+      <el-table-column prop="licence" label="名称" fixed></el-table-column>
       <el-table-column prop="number" label="编号"></el-table-column>
       <el-table-column prop="unit" label="建设单位"></el-table-column>
       <el-table-column prop="department" label="发证机关"></el-table-column>
@@ -20,7 +23,7 @@
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="cc" label="操作">
+      <el-table-column width="140px" prop="cc" label="操作">
         <div class="cc">
           <el-button size="mini" type="success">上链</el-button>
           <el-button size="mini" type="danger">删除</el-button>
