@@ -15,7 +15,8 @@
 export default {
   data() {
     return {
-      breadList: []
+      breadList: [],
+      isCollapse: true
     };
   },
   watch: {

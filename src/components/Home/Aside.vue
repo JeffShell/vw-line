@@ -1,5 +1,4 @@
 <template>
-  <el-aside style="width: 200px">
     <el-menu
         default-active="1"
         unique-opened
@@ -16,7 +15,6 @@
         什么都没
       </el-menu-item>
     </el-menu>
-  </el-aside>
 </template>
 
 <script>
@@ -26,15 +24,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-aside {
-  height: 100vh;
-  border: 0;
-  background-color:#545c64;
-  > .el-menu {
+.el-menu {
     border: 0;
     > .el-menu-item {
       font-size: 18px;
     }
-  }
+
 }
 </style>

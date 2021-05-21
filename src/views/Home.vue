@@ -1,7 +1,9 @@
 <template>
   <div>
     <el-container>
+      <el-aside style="width: 200px">
       <Aside/>
+      </el-aside>
       <el-container>
         <el-header>
           <Breadcrumb/>
@@ -28,5 +30,10 @@ export default {
 <style leng="scss">
 .el-header {
   border-bottom: 1px solid #eee;
+}
+.el-aside {
+  height: 100vh;
+  border: 0;
+  background-color: #545c64;
 }
 </style>
