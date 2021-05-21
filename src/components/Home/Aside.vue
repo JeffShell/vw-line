@@ -4,6 +4,7 @@
            background-color="#545c64"
            active-text-color="#5486ca"
            router
+           class="el-menu-vertical-demo"
            :collapse="msg">
     <el-menu-item index="/interblockchainshow">
       <i class="el-icon-s-grid"></i>
@@ -35,11 +36,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 .el-menu {
   height: 100vh;
   border: 0;
     > .el-menu-item {
       font-size: 18px;
+      //width: 200px;
     }
 
 }
