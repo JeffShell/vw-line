@@ -1,6 +1,8 @@
 <template>
   <div class="bread">
-    <i class="el-icon-s-fold"></i>
+    <div class="icon-bread" @click="handleClick">
+      <i class="el-icon-s-fold"></i>
+    </div>
     <el-breadcrumb separator="/">
       <el-breadcrumb-item
           v-for="(item,index) in breadList"
@@ -16,7 +18,6 @@ export default {
   data() {
     return {
       breadList: [],
-      isCollapse: true
     };
   },
   watch: {
@@ -35,6 +36,10 @@ export default {
         matched = [{path: "/home", meta: {title: "首页"}}].concat(matched);
       }
       this.breadList = matched;
+    },
+    handleClick(){
+      console.log("dmji");
+      this.$emit('icon_break')
     }
   },
   created() {
@@ -49,7 +54,7 @@ export default {
   height: 60px;
   line-height: 60px;
   align-items: center;
-  > i {
+  > .icon-bread {
     margin-right: 10px;
   }
 }

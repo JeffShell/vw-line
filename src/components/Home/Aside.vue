@@ -1,31 +1,43 @@
 <template>
-    <el-menu
-        default-active="1"
-        unique-opened
-        router
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#5486ca">
-      <el-menu-item index="/interblockchainshow">
-        <i class="el-icon-s-grid"></i>
-        跨链
-      </el-menu-item>
-      <el-menu-item index="/nothing">
-        <i class="el-icon-data-line"></i>
-        什么都没
-      </el-menu-item>
-    </el-menu>
+  <el-menu default-active="1-4-1"
+           text-color="#fff"
+           background-color="#545c64"
+           active-text-color="#5486ca"
+           router
+           :collapse="msg">
+    <el-menu-item index="/interblockchainshow">
+      <i class="el-icon-s-grid"></i>
+      <span slot="title">跨链</span>
+    </el-menu-item>
+    <el-menu-item index="/nothing">
+      <i class="el-icon-data-line"></i></i>
+      <span slot="title">什么都没</span>
+    </el-menu-item>
+  </el-menu>
 </template>
 
 <script>
 export default {
-  name: "Aside"
+  name: "Aside",
+  props:['msg'],
+  data() {
+    return {
+    };
+  },
+  watch: {
+    msg:{
+      handler(){
+        console.log(this.msg)
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .el-menu {
-    border: 0;
+  height: 100vh;
+  border: 0;
     > .el-menu-item {
       font-size: 18px;
     }

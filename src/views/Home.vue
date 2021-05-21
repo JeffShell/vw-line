@@ -1,29 +1,41 @@
 <template>
   <div>
     <el-container>
-      <el-aside style="width: 200px">
-      <Aside/>
-      </el-aside>
+      <div class="c">
+        <Aside :msg="msg"/>
+      </div>
       <el-container>
         <el-header>
-          <Breadcrumb/>
+          <Breadcrumb @icon_break="icon_break"/>
         </el-header>
         <el-main>
-          <router-view />
+          <router-view/>
         </el-main>
       </el-container>
     </el-container>
-  </div>
 
+  </div>
 </template>
+
 <script>
 import Aside from '@/components/Home/Aside.vue'
 import Breadcrumb from '@/components/Home/Breadcrumb.vue'
+
 export default {
-  components:{
+  components: {
     Aside,
     Breadcrumb
-  }
+  },
+  data() {
+    return {
+      msg: false
+    }
+  },
+  methods: {
+    icon_break() {
+      this.msg = !this.msg
+    }
+  },
 }
 </script>
 
@@ -31,9 +43,9 @@ export default {
 .el-header {
   border-bottom: 1px solid #eee;
 }
-.el-aside {
-  height: 100vh;
-  border: 0;
+.c {
+
   background-color: #545c64;
 }
+
 </style>
