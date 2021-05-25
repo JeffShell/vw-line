@@ -19,7 +19,7 @@
       <el-table-column prop="status" label="状态">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status ? 'success' : 'info'">
-            {{scope.row.status ? '已缓存' : '未缓存'}}
+            {{scope.row.status ? '已上链' : '已缓存'}}
           </el-tag>
         </template>
       </el-table-column>
