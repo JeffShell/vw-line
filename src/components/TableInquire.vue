@@ -1,32 +1,30 @@
 <template>
-  <el-row :gutter="20">
+  <el-row :gutter="10">
     <el-form ref="form" :model="form" label-width="100px">
       <el-col :span="4">
-        <el-input placeholder="工程名单"></el-input>
+        <el-input placeholder="工程名单" v-model="form.projectName"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-input placeholder="施工单位"></el-input>
+        <el-input placeholder="施工单位" v-model="form.unit"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-input placeholder="发证机关"></el-input>
+        <el-input placeholder="发证机关" v-model="form.department"></el-input>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <div class="block">
-          <span class="demonstration">查询</span>
+          <span class="demonstration">默认</span>
           <el-date-picker
-              type="date"
-              placeholder="选择日期">
-          </el-date-picker>
-          <span class="demonstration">至</span>
-          <el-date-picker
-              type="date"
-              placeholder="选择日期">
+              v-model="form.value1"
+              type="daterange"
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期">
           </el-date-picker>
         </div>
       </el-col>
       <el-col :span="2">
 
-        <el-button type="primary">
+        <el-button type="primary" @click="onSubmit">
           <i class="el-icon-search"></i>
           搜索
         </el-button>
@@ -42,13 +40,22 @@ export default {
       form: {
         projectName: '',
         unit: '',
-        department: ''
+        department: '',
+        value1: ''
       }
     }
   },
+  methods:{
+    onSubmit(){
+      console.log(this.form)
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
+.demonstration {
+  margin: 0 10px;
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div>
-    <BlockchainForm/>
-    <TableInquire/>
+    <div class="form-inquire">
+      <BlockchainForm/>
+      <TableInquire/>
+    </div>
     <Table/>
   </div>
 </template>
@@ -10,6 +12,7 @@
 import BlockchainForm from "@/components/BlockchainForm.vue"
 import TableInquire from "@/components/TableInquire.vue"
 import Table from "@/components/Table.vue"
+
 export default {
   components: {
     BlockchainForm,
@@ -20,4 +23,8 @@ export default {
 </script>
 
 <style scoped>
+.form-inquire {
+  margin-bottom: 20px;
+
+}
 </style>

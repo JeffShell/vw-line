@@ -1,5 +1,4 @@
 <template>
-  <div class="form-main">
     <el-row>
       <el-form ref="form" :model="form" label-width="100px">
         <el-col :span="10">
@@ -34,7 +33,6 @@
         </el-col>
       </el-form>
     </el-row>
-  </div>
 </template>
 
 <script>
@@ -60,11 +58,5 @@ export default {
 </script>
 
 <style scoped>
-.form-main {
-  margin-bottom: 20px;
 
-}
-.demonstration {
-  margin: 0 10px;
- }
 </style>
