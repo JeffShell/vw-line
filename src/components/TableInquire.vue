@@ -34,6 +34,7 @@
 
 <script>
 export default {
+  props:['backgroundData'],
   data() {
     return {
       form: {
@@ -46,7 +47,7 @@ export default {
   },
   methods:{
     onSubmit(){
-      console.log(this.form)
+      console.log(this.backgroundData)
     }
   }
 }

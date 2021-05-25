@@ -2,7 +2,7 @@
   <div>
     <div class="form-inquire">
       <BlockchainForm/>
-      <TableInquire/>
+      <TableInquire :backgroundData="backgroundData"/>
     </div>
     <Table :lineData="lineData" :totalCount="totalCount"/>
   </div>
