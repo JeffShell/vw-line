@@ -10,25 +10,24 @@
       <el-col :span="4">
         <el-input placeholder="发证机关" v-model="form.department"></el-input>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="12">
         <div class="block">
-          <span class="demonstration">默认</span>
+          <span >查询日期</span>
           <el-date-picker
+              class="demonstration"
               v-model="form.value1"
               type="daterange"
               range-separator="至"
               start-placeholder="开始日期"
               end-placeholder="结束日期">
           </el-date-picker>
+          <el-button type="primary" size="medium" @click="onSubmit">
+            <i class="el-icon-search"></i>
+            搜索
+          </el-button>
         </div>
       </el-col>
-      <el-col :span="2">
 
-        <el-button type="primary" @click="onSubmit">
-          <i class="el-icon-search"></i>
-          搜索
-        </el-button>
-      </el-col>
     </el-form>
   </el-row>
 </template>
@@ -54,7 +53,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.block {
+  width: 100%;
+}
 .demonstration {
   margin: 0 10px;
 }

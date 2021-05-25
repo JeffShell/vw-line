@@ -14,7 +14,7 @@
       <el-table-column prop="unitName" label="工程名称"></el-table-column>
       <el-table-column prop="address" label="建设地址"></el-table-column>
       <el-table-column prop="price" label="合同价格"></el-table-column>
-      <el-table-column prop="buildUnit" label="建设单位"></el-table-column>
+      <el-table-column prop="buildUnit" label="施工单位"></el-table-column>
       <el-table-column prop="hash" label="交易哈希"></el-table-column>
       <el-table-column prop="status" label="状态">
         <template slot-scope="scope">
@@ -49,13 +49,10 @@
 import axios from "axios";
 
 export default {
-  name: "BookList",
+  props:['lineData', 'totalCount'],
   data() {
     return {
-      url: 'https://api.mocksys.com/api/v1/mock/20043/get/kxlm',
-      lineData: [],
       currentPage: 1,
-      totalCount: 10,
       pageSizes: [1, 2, 3, 4, 5],
       PageSize: 5,
     }
@@ -68,15 +65,6 @@ export default {
     },
   },
   methods: {
-    getData() {
-      axios.get(this.url)
-          .then((response) => {
-            this.lineData = response.data.data
-            this.totalCount = response.data.data.length
-          }).catch(function (error) {
-        console.log(error);
-      })
-    },
     filterTag(value, row) {
       console.log(row)
       return row.tag === value;
@@ -89,9 +77,6 @@ export default {
       this.currentPage = val
     },
   },
-  created() {
-    this.getData()
-  }
 }
 </script>
 
