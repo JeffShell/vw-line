@@ -37,7 +37,6 @@ export default {
       this.breadList = matched;
     },
     handleClick(){
-      console.log("dmji");
       this.$emit('icon_break')
     }
   },
