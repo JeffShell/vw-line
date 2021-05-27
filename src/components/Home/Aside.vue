@@ -4,6 +4,7 @@
            background-color="#545c64"
            active-text-color="#5486ca"
            router
+           :collapse="msg"
            class="el-menu-vertical-demo">
     <el-menu-item index="/interblockchainshow">
       <i class="el-icon-s-grid"></i>
