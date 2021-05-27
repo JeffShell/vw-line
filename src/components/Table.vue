@@ -10,7 +10,7 @@
       <el-table-column prop="number" label="编号"></el-table-column>
       <el-table-column prop="unit" label="建设单位"></el-table-column>
       <el-table-column prop="department" label="发证机关"></el-table-column>
-      <el-table-column prop="date" label="发证日期"></el-table-column>
+      <el-table-column prop="dateValue" label="发证日期"></el-table-column>
       <el-table-column prop="unitName" label="工程名称"></el-table-column>
       <el-table-column prop="address" label="建设地址"></el-table-column>
       <el-table-column prop="price" label="合同价格"></el-table-column>
@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     filterTag(value, row) {
-      console.log(row)
       return row.tag === value;
     },
     handleSizeChange(val) {

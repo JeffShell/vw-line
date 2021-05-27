@@ -2,26 +2,28 @@
   <el-row :gutter="10">
     <el-form ref="form" :model="form" label-width="100px">
       <el-col :span="4">
-        <el-input placeholder="工程名单" v-model="form.projectName"></el-input>
+        <el-input placeholder="工程名单" v-model="form.licence"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-input placeholder="施工单位" v-model="form.unit"></el-input>
+        <el-input placeholder="施工单位" v-model="form.buildUnit"></el-input>
       </el-col>
       <el-col :span="4">
         <el-input placeholder="发证机关" v-model="form.department"></el-input>
       </el-col>
       <el-col :span="12">
         <div class="block">
-          <span >查询日期</span>
+          <span>查询日期</span>
           <el-date-picker
               class="demonstration"
-              v-model="form.value1"
+              v-model="form.dateValue"
               type="daterange"
+              value-format="yyyy-MM-dd"
               range-separator="至"
               start-placeholder="开始日期"
               end-placeholder="结束日期">
           </el-date-picker>
-          <el-button type="primary" size="medium" @click="onSubmit">
+          <el-button type="primary" size="medium"
+                     @click="onSubmit">
             <i class="el-icon-search"></i>
             搜索
           </el-button>
@@ -34,22 +36,31 @@
 
 <script>
 export default {
-  props:['backgroundData'],
+  props: ['backgroundData'],
   data() {
     return {
+      indexForm: '',
       form: {
-        projectName: '',
-        unit: '',
+        licence: '',
+        buildUnit: '',
         department: '',
-        value1: ''
+        dateValue: ''
       }
     }
   },
-  methods:{
-    onSubmit(){
-      console.log(this.backgroundData)
-    }
+  methods: {
+    searchKeyValue(value) {
+      let key = Object.keys(value)
+      let res = this.backgroundData.filter(item => {
+        key.find(k => item[k] === value[k])
+      });
+      console.log(res);
+    },
+    onSubmit() {
+      this.searchKeyValue(this.form)
+    },
   }
+  ,
 }
 </script>
 
@@ -57,6 +68,7 @@ export default {
 .block {
   width: 100%;
 }
+
 .demonstration {
   margin: 0 10px;
 }
