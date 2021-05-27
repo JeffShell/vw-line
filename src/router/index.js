@@ -9,18 +9,21 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        component: Home,
-        redirect: "/home",
-        name: 'home',
+        redirect: "/interblockchainshow",
+        name: "首页"
+    },
+    {
+        path: '/home',
+        redirect: "/home/interblockchainshow",
+        name: "首页"
     },
     {
         path: "/home",
         component: Home,
-        name: 'home',
+        name: "首页",
         children: [{
-            path: "",
+            path: '',
             component: InterBlockchainShow,
-            name: '跨链',
         },{
             path: '/interblockchainshow',
             component: InterBlockchainShow,

@@ -21,7 +21,6 @@ git branch -M main
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-git remote add origin git@github.com:JeffShell/vw-line-dist.git
-git push -u origin main
+ git push -f  https://github.com/JeffShell/vw-line-dist.git main:main
 
 cd -

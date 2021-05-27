@@ -4,8 +4,7 @@
            background-color="#545c64"
            active-text-color="#5486ca"
            router
-           class="el-menu-vertical-demo"
-           :collapse="msg">
+           class="el-menu-vertical-demo">
     <el-menu-item index="/interblockchainshow">
       <i class="el-icon-s-grid"></i>
       <span slot="title">跨链</span>
@@ -25,13 +24,6 @@ export default {
     return {
     };
   },
-  watch: {
-    msg:{
-      handler(){
-        console.log(this.msg)
-      }
-    }
-  }
 }
 </script>
 

@@ -32,7 +32,6 @@ export default {
     getBreadcrumb() {
       let matched = this.$route.matched;
       if (!this.isHome(matched[0])) {
-        console.log(matched);
         matched = [{path: "/home", meta: {title: "首页"}}].concat(matched);
       }
       this.breadList = matched;
