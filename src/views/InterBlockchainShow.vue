@@ -19,7 +19,7 @@ export default {
     return {
       lineData: [],
       backgroundData: [],
-      totalCount: 10,
+      totalCount: 1,
     }
   },
   components: {
@@ -30,6 +30,7 @@ export default {
   methods: {
     childByValue(childValue){
       this.lineData = childValue
+      this.totalCount = childValue.length
     },
     getData() {
       axios.get('https://api.mocksys.com/api/v1/mock/20043/get/kxlm')

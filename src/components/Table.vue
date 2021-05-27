@@ -32,11 +32,11 @@
     </el-table>
     <div class="tabListPage">
       <el-pagination
-          background
           class="pag"
+          background
+          hide-on-single-page
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="currentPage"
           :page-sizes="pageSizes"
           :page-size="PageSize" layout="total, sizes, prev, pager, next, jumper"
           :total="totalCount">
@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      pageSizes: [1, 2, 3, 4, 5],
+      pageSizes: [1,2,3,4,5],
       PageSize: 5,
     }
   },

@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     searchKeyValue(value) {
-      let a = this.backgroundData.filter(item => {
+      let inquireData = this.backgroundData.filter(item => {
         return Object.keys(value).reduce((flag, i) => {
           if(!flag){
             return false
@@ -58,7 +58,7 @@ export default {
           }
         }, true)
       })
-      this.$emit('childByValue',a )
+      this.$emit('childByValue',inquireData )
     },
     onSubmit() {
       this.searchKeyValue(this.form)
