@@ -2,7 +2,7 @@
   <div>
     <div class="form-inquire">
       <BlockchainForm/>
-      <TableInquire :backgroundData="backgroundData"/>
+      <TableInquire :backgroundData="backgroundData" @childByValue="childByValue"/>
     </div>
     <Table :lineData="lineData" :totalCount="totalCount"/>
   </div>
@@ -28,6 +28,9 @@ export default {
     Table
   },
   methods: {
+    childByValue(childValue){
+      this.lineData = childValue
+    },
     getData() {
       axios.get('https://api.mocksys.com/api/v1/mock/20043/get/kxlm')
           .then((response) => {

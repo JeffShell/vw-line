@@ -39,7 +39,6 @@ export default {
   props: ['backgroundData'],
   data() {
     return {
-      indexForm: '',
       form: {
         licence: '',
         buildUnit: '',
@@ -50,7 +49,7 @@ export default {
   },
   methods: {
     searchKeyValue(value) {
-      let a= this.backgroundData.filter(item => {
+      let a = this.backgroundData.filter(item => {
         return Object.keys(value).reduce((flag, i) => {
           if(!flag){
             return false
@@ -59,7 +58,7 @@ export default {
           }
         }, true)
       })
-      console.log(a);
+      this.$emit('childByValue',a )
     },
     onSubmit() {
       this.searchKeyValue(this.form)

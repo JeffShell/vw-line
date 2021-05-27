@@ -62,6 +62,7 @@ export default {
       return this.lineData.slice(
           (this.currentPage - 1) * this.PageSize, this.currentPage * this.PageSize
       )
+
     },
   },
   methods: {
