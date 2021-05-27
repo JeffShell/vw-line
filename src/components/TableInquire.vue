@@ -50,11 +50,16 @@ export default {
   },
   methods: {
     searchKeyValue(value) {
-      let key = Object.keys(value)
-      let res = this.backgroundData.filter(item => {
-        key.find(k => item[k] === value[k])
-      });
-      console.log(res);
+      let a= this.backgroundData.filter(item => {
+        return Object.keys(value).reduce((flag, i) => {
+          if(!flag){
+            return false
+          } else {
+            return value[i].trim() ? String(item[i]).indexOf(value[i]) !== -1 : true
+          }
+        }, true)
+      })
+      console.log(a);
     },
     onSubmit() {
       this.searchKeyValue(this.form)
