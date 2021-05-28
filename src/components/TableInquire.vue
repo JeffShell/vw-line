@@ -51,14 +51,34 @@ export default {
     searchKeyValue(value) {
       let inquireData = this.backgroundData.filter(item => {
         return Object.keys(value).reduce((flag, i) => {
-          if(!flag) return false
+          if (!flag) return false
           return value[i].trim() ? String(item[i]).indexOf(value[i]) !== -1 : true
         }, true)
       })
-      this.$emit('childByValue',inquireData )
+      if(inquireData.length === 0){
+        this.$message({
+          message: '没有数据'
+        });
+        return false
+      }
+      this.$message({
+        message: '查询成功',
+        type: 'success'
+      });
+      this.$emit('childByValue', inquireData)
     },
     onSubmit() {
-      this.searchKeyValue(this.form)
+      let itemKey = Object.keys(this.form)
+      let arr = itemKey.filter(item => {
+        return this.form[item]
+      })
+      if (arr.length !== 0) {
+        this.searchKeyValue(this.form)
+      } else {
+        this.$message({
+          message: '请输入关键字查询好吗',
+        });
+      }
     },
   }
   ,
