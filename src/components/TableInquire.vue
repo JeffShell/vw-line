@@ -18,7 +18,7 @@
               v-model="form.dateValue"
               type="daterange"
               value-format="yyyy-MM-dd"
-              range-separator="至"
+              range-separator="-"
               start-placeholder="开始日期"
               end-placeholder="结束日期">
           </el-date-picker>
@@ -89,8 +89,10 @@ export default {
 .block {
   width: 100%;
 }
-
 .demonstration {
   margin: 0 10px;
+}
+span.el-range-separator {
+  margin:0 10px;
 }
 </style>
