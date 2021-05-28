@@ -51,11 +51,8 @@ export default {
     searchKeyValue(value) {
       let inquireData = this.backgroundData.filter(item => {
         return Object.keys(value).reduce((flag, i) => {
-          if(!flag){
-            return false
-          } else {
-            return value[i].trim() ? String(item[i]).indexOf(value[i]) !== -1 : true
-          }
+          if(!flag) return false
+          return value[i].trim() ? String(item[i]).indexOf(value[i]) !== -1 : true
         }, true)
       })
       this.$emit('childByValue',inquireData )

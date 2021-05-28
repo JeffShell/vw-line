@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-table
-        style="width:1700px"
         :data="displayData"
         stripe
         fit
@@ -46,8 +45,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   props:['lineData', 'totalCount'],
   data() {
