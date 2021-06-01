@@ -1,64 +1,77 @@
 <template>
-<el-row class="main" type="flex" justify="center" align="middle">
-  <el-col :span="8" :md="7">
-    <el-card>  
-      <el-form 
-        ref="formdata"
-        :model="formdata" 
-        label-width="80px" 
-        :rules="rules">
-        <el-form-item label="用户名" prop="user">
-          <el-input v-model="formdata.user" placeholder="请输入用户名"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="passwd">
-          <el-input v-model="formdata.passwd" placeholder="请输入密码" show-password></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="validate('formdata')">
-            登录
-          </el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
-  </el-col>
-</el-row>
+  <main>
+    <el-row class="main" type="flex" justify="center" align="middle">
+      <el-col :span="8" :md="7">
+        <el-card>
+          <el-form ref="formdata" :model="formdata" label-width="80px" :rules="rules">
+            <el-form-item label="用户名" prop="userName">
+              <el-input v-model="formdata.userName" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+              <el-input v-model="formdata.password" placeholder="请输入密码" show-password></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="login()">
+                登录
+              </el-button>
+            </el-form-item>
+          </el-form>
+        </el-card>
+      </el-col>
+    </el-row>
+  </main>
 
 </template>
 <script>
 export default {
-  data(){
+  data () {
     return {
       formdata: {
-        user: '',
+        userName: '',
         passwd: '',
       },
       rules: {
-        passwd: [
-          { required: true, message: '请输入', trigger: 'blur' },
-          { max: 5, message: "请输入至少5个数字" }
+        userName: [
+          { required: true, message: '用户名不能为空', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '密码不能为空', trigger: 'blur' },
         ]
       }
     }
   },
-  methods:{
-    validate(value){
-      this.$refs[value].validate((valid) => {
+  methods: {
+    login () {
+      this.$refs.formdata.validate((valid) => {
         if (valid) {
-          console.log(valid);
-        } else {
-          console.log('error submit!!');
-          return false;
+          if (this.formdata.userName === 'admin' && this.formdata.password === '123') {
+            this.$notify({
+              type: 'success',
+              message: '欢迎你,' + this.formdata.userName + '!',
+              duration: 3000
+            })
+            this.$router.replace('/home')
+          } else {
+            this.$message({
+              type: 'error',
+              message: '用户名或密码错误',
+              showClose: true
+            })
+          }
         }
-      });
+        else {
+          return false
+        }
+      })
     }
   }
 
 }
 </script>
-<style lang="scss">
-body {
+<style lang="scss" scoped>
+main {
   background: #44a08d;
-  background: -webkit-linear-gradient(to top, #44a08d, #093637); 
+  background: -webkit-linear-gradient(to top, #44a08d, #093637);
   background: linear-gradient(to top, #44a08d, #093637);
 }
 .main {

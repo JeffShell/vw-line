@@ -11,7 +11,7 @@
       <span slot="title">跨链</span>
     </el-menu-item>
     <el-menu-item index="/nothing">
-      <i class="el-icon-data-line"></i></i>
+      <i class="el-icon-data-line"></i>
       <span slot="title">什么都没</span>
     </el-menu-item>
   </el-menu>

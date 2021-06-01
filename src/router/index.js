@@ -9,19 +9,9 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/login",
+    path: "/",
     name: "Login",
     component: Login
-  },
-  {
-    path: '/',
-    redirect: "/interblockchainshow",
-    name: "首页"
-  },
-  {
-    path: '/home',
-    redirect: "/home/interblockchainshow",
-    name: "首页"
   },
   {
     path: "/home",
