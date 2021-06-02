@@ -11,7 +11,7 @@
               <el-input v-model="formdata.password" placeholder="请输入密码" show-password></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="login()">
+              <el-button type="primary" @click="submit()">
                 登录
               </el-button>
             </el-form-item>
@@ -26,9 +26,10 @@
 export default {
   data () {
     return {
+      aa: "user",
       formdata: {
         userName: '',
-        passwd: '',
+        password: '',
       },
       rules: {
         userName: [
@@ -41,16 +42,18 @@ export default {
     }
   },
   methods: {
-    login () {
+    submit() {
       this.$refs.formdata.validate((valid) => {
         if (valid) {
           if (this.formdata.userName === 'admin' && this.formdata.password === '123') {
-            this.$notify({
-              type: 'success',
-              message: '欢迎你,' + this.formdata.userName + '!',
-              duration: 3000
+            this.$store.dispatch('login', this.formdata).then(()=>{
+              this.$notify({
+                type: 'success',
+                message: '欢迎你,' + this.formdata.userName + '!',
+                duration: 3000
+              })
+              this.$router.replace('/home')
             })
-            this.$router.replace('/home')
           } else {
             this.$message({
               type: 'error',
