@@ -23,6 +23,7 @@
 
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -42,11 +43,22 @@ export default {
     }
   },
   methods: {
-    submit() {
+    submit () {
       this.$refs.formdata.validate((valid) => {
+        axios({
+          url: 'https://api.mocksys.com/api/v1/mock/20043/post/users',
+          method: 'post'
+        }).then((res) => {
+          // 状态码 200 表示请求成功
+          if (res.data.code == 200) {
+            console.log(res.data)
+          } else {
+            console.log(res.data)
+          }
+        })
         if (valid) {
           if (this.formdata.userName === 'admin' && this.formdata.password === '123') {
-            this.$store.dispatch('login', this.formdata).then(()=>{
+            this.$store.dispatch('login', this.formdata).then(() => {
               this.$notify({
                 type: 'success',
                 message: '欢迎你,' + this.formdata.userName + '!',
