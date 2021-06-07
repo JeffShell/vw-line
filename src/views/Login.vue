@@ -52,9 +52,9 @@ export default {
             formdata: this.formdata
           }
         }).then((res) => {
-          if (res.status == 200) {
+          if (res.status === 200) {
             if (valid) {
-              if (res) {
+              if (res.data) {
                 this.$store.dispatch('login', this.formdata).then(() => {
                   this.$notify({
                     type: 'success',

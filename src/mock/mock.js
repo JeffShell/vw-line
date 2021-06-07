@@ -2,9 +2,8 @@ import Mock from 'mockjs';
 
 Mock.mock('http://g.cn','post',function(option){
   let dataBody = JSON.parse(option.body)
+  let a= undefined
   let mockData = Mock.mock({
-    code: 200,
-    message: "sucess",
     data:[{
       "t_id": "@id()",
       "t_name": "admin1",
@@ -28,6 +27,9 @@ Mock.mock('http://g.cn','post',function(option){
     }]
   })
   mockData.data.filter((item)=>{
-    if(item.t_name === dataBody.formdata.userName) return true
+    if(item.t_name === dataBody.formdata.userName && item.t_password === parseInt(dataBody.formdata.password)) {
+        a = true
+    }
   })
+  return a
 })
