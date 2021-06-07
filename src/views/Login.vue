@@ -46,37 +46,37 @@ export default {
     submit () {
       this.$refs.formdata.validate((valid) => {
         axios({
-          url: 'https://api.mocksys.com/api/v1/mock/20043/post/users',
-          method: 'post'
+          url: 'http://g.cn',
+          method: 'post',
+          data: {
+            formdata: this.formdata
+          }
         }).then((res) => {
-          // 状态码 200 表示请求成功
-          if (res.data.code == 200) {
-            console.log(res.data)
+          if (res.status == 200) {
+            if (valid) {
+              if (res) {
+                this.$store.dispatch('login', this.formdata).then(() => {
+                  this.$notify({
+                    type: 'success',
+                    message: '欢迎你,' + this.formdata.userName + '!',
+                    duration: 3000
+                  })
+                  this.$router.replace('/home')
+                })
+              } else {
+                this.$message({
+                  type: 'error',
+                  message: '用户名或密码错误',
+                  showClose: true
+                })
+              }
+            } else {
+              return false
+            }
           } else {
-            console.log(res.data)
+            console.log(res.mockData)
           }
         })
-        if (valid) {
-          if (this.formdata.userName === 'admin' && this.formdata.password === '123') {
-            this.$store.dispatch('login', this.formdata).then(() => {
-              this.$notify({
-                type: 'success',
-                message: '欢迎你,' + this.formdata.userName + '!',
-                duration: 3000
-              })
-              this.$router.replace('/home')
-            })
-          } else {
-            this.$message({
-              type: 'error',
-              message: '用户名或密码错误',
-              showClose: true
-            })
-          }
-        }
-        else {
-          return false
-        }
       })
     }
   }
