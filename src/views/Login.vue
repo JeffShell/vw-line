@@ -3,7 +3,7 @@
     <el-row class="main" type="flex" justify="center" align="middle">
       <el-col :span="8" :md="7">
         <el-card>
-          <el-form ref="formdata" :model="formdata" label-width="80px" :rules="rules">
+          <el-form @submit.native.prevent ref="formdata" :model="formdata" label-width="80px" :rules="rules">
             <el-form-item label="用户名" prop="userName">
               <el-input v-model="formdata.userName" placeholder="请输入用户名"></el-input>
             </el-form-item>
@@ -11,7 +11,7 @@
               <el-input v-model="formdata.password" placeholder="请输入密码" show-password></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="submit()">
+              <el-button type="primary" @click="submit()" native-type="submit">
                 登录
               </el-button>
             </el-form-item>
