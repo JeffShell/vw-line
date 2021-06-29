@@ -11,23 +11,11 @@
         <el-input placeholder="发证机关" v-model="form.department"></el-input>
       </el-col>
       <el-col :span="12">
-        <div class="block">
-          <span>查询日期</span>
-          <el-date-picker
-              class="demonstration"
-              v-model="form.dateValue"
-              type="daterange"
-              value-format="yyyy-MM-dd"
-              range-separator="-"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期">
-          </el-date-picker>
           <el-button type="primary" size="medium"
                      @click="onSubmit">
             <i class="el-icon-search"></i>
             搜索
           </el-button>
-        </div>
       </el-col>
 
     </el-form>

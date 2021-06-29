@@ -22,12 +22,6 @@
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column width="140px" prop="cc" label="操作">
-        <div class="cc">
-          <el-button size="mini" type="success">上链</el-button>
-          <el-button size="mini" type="danger">删除</el-button>
-        </div>
-      </el-table-column>
     </el-table>
     <div class="tabListPage">
       <el-pagination
