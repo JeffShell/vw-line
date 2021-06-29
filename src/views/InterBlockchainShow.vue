@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="form-inquire">
-      <BlockchainForm/>
       <TableInquire :backgroundData="backgroundData" @childByValue="childByValue"/>
     </div>
     <Table :lineData="lineData" :totalCount="totalCount"/>
@@ -9,7 +8,6 @@
 </template>
 
 <script>
-import BlockchainForm from "@/components/BlockchainForm.vue"
 import TableInquire from "@/components/TableInquire.vue"
 import Table from "@/components/Table.vue"
 import axios from "axios";
@@ -23,7 +21,6 @@ export default {
     }
   },
   components: {
-    BlockchainForm,
     TableInquire,
     Table
   },
