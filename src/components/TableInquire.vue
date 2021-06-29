@@ -2,7 +2,7 @@
   <el-row :gutter="10">
     <el-form ref="form" :model="form" label-width="100px">
       <el-col :span="4">
-        <el-input placeholder="工程名单" v-model="form.licence"></el-input>
+        <el-input placeholder="名称" v-model="form.licence"></el-input>
       </el-col>
       <el-col :span="4">
         <el-input placeholder="施工单位" v-model="form.buildUnit"></el-input>
@@ -30,8 +30,7 @@ export default {
       form: {
         licence: '',
         buildUnit: '',
-        department: '',
-        dateValue: ''
+        department: ''
       }
     }
   },
@@ -40,7 +39,8 @@ export default {
       let inquireData = this.backgroundData.filter(item => {
         return Object.keys(value).reduce((flag, i) => {
           if (!flag) return false
-          return value[i].trim() ? String(item[i]).indexOf(value[i]) !== -1 : true
+          console.log(String(item[i]));
+          return value[i] ? String(item[i]).indexOf(value[i].replace(/\s*/g, "")) !== -1 : true
         }, true)
       })
       if(inquireData.length === 0){
@@ -55,12 +55,14 @@ export default {
       });
       this.$emit('childByValue', inquireData)
     },
+
     onSubmit() {
       let itemKey = Object.keys(this.form)
       let arr = itemKey.filter(item => {
         return this.form[item]
       })
       if (arr.length !== 0) {
+
         this.searchKeyValue(this.form)
       } else {
         this.$message({
